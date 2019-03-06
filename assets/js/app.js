@@ -11,4 +11,18 @@ require('../css/app.scss')
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // const $ = require('jquery');
 
-console.log('Hello Webpack Encore!')
+document.addEventListener('DOMContentLoaded', function(event) {
+  let navbar = document.querySelector('#navbar')
+  let navbarPosition = document.querySelector('#navbar').offsetTop
+  let mainPosition = document.querySelector('#main').offsetTop
+
+  function stickyNavigation() {
+    if(window.scrollY >= navbarPosition) {
+      navbar.classList.add('sticky')
+    } else {
+      navbar.classList.remove('sticky')
+    }
+  }
+
+  window.addEventListener('scroll', stickyNavigation)
+})

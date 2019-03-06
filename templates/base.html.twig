@@ -1,20 +1,76 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}BASE{% endblock %}</title>
-        {% block css %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}
-            <div class="header">
-                <div class="header_banner"></div>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}BASE{% endblock %}</title>
+    {% block css %}
+    {{ encore_entry_link_tags('app') }}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    {% endblock %}
+</head>
+
+<body>
+    <div class="body_filter">
+        <header class="header">
+            <div class="container_logo">
+                <a href="{{ path('home') }}">
+                    <img src="{{ asset('/img/wow_logo.png') }}" alt="world of warcraft classic">
+                </a>
             </div>
+
+            <nav class="navbar" id="navbar">
+                <ul class="navbar_ul">
+                    <a href="" class="navbar_a">
+                        <li class="navbar_li">Actualités</li>
+                    </a>
+                    <a href="" class="navbar_a">
+                        <li class="navbar_li">lorem ipsum</li>
+                    </a>
+                    <a href="" class="navbar_a">
+                        <li class="navbar_li">lorem ipsum</li>
+                    </a>
+                    <a href="" class="navbar_a">
+                        <li class="navbar_li">lorem ipsum</li>
+                    </a>
+                </ul>
+
+                <div class="search"><input type="search"><button type="submit" class="fas fa-search"></button></div>              
+            </nav>
+        </header>
+
+        <div class="aside_right"></div>
+        <div class="main" id="main">
+        {% block body %}
+
         {% endblock %}
+        </div>
         {% block js %}
-            {{ encore_entry_script_tags('app') }}          
+        {{ encore_entry_script_tags('app') }}
         {% endblock %}
-    </body>
+    </div>
+
+    <footer class="footer">
+        <div class="footer_left">
+            <h4>Auteur du site</h4>
+            <p>
+                Pour toute question ou demande vous pouvez contacter le créateur du site : 
+                <a href="http://www.kevinponsart.com">kevinponsart.com</a>
+            </p>
+        </div>
+        <div class="footer_middle">
+            <h4>World of Warcraft</h4>
+            <p>World of Warcraft et Blizzard Entertainment sont des marques ou des marques déposées de Blizzard Entertainment, Inc. aux États-Unis d’Amérique et/ou dans d’autres pays.</p>
+        </div>
+        <div class="footer_right">
+            <h4>Sites partenaires</h4>
+            <ul>
+                <li><a href="https://worldofwarcraft.com">World of warcraft</a></li>
+                <li><a href="https://www.icy-veins.com/wow/">Yci veins</a></li>
+                <li><a href="https://www.mmo-champion.com/content/">MMO Champion</a></li>
+            </ul>            
+        </div>
+    </footer>
+</body>
+
 </html>
